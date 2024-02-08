@@ -22,9 +22,7 @@ module "eks" {
 
   vpc_id                   = "${var.vpc_id_for_eks}"
   subnet_ids               = "${var.vpc_public_subnets}"
-  #control_plane_subnet_ids = module.vpc.public_subnets
   enable_irsa = true
-  node_security_group_id =  "${var.sg_id}"
   # Self Managed Node Group(s)
   self_managed_node_group_defaults = {
     instance_type                          = "t3.medium"
@@ -55,11 +53,6 @@ module "eks" {
       }
     }
   }
-
-  # aws-auth configmap
-  #create_aws_auth_configmap = true
-
-  
 
   tags = {
     Environment = "dev"
