@@ -1,6 +1,6 @@
 
 terraform {
-  source = "${get_terragrunt_dir()}"
+  source = "${get_terragrunt_dir()}/../module/argocd"
 }
 
 

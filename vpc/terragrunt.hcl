@@ -1,6 +1,6 @@
 
 terraform {
-  source = "${get_terragrunt_dir()}"
+  source = "${get_terragrunt_dir()}/../module/vpc"
 }
 
 # Indicate the input values to use for the variables of the module.
