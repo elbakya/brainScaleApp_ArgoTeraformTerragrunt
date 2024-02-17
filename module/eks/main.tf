@@ -4,7 +4,7 @@ module "eks" {
   version = "~> 19.16"
 
   cluster_name    = "${var.cluster_name}"
-  cluster_version = "1.27"
+  cluster_version = "1.28"
 
   cluster_endpoint_public_access  = true
 
@@ -50,6 +50,8 @@ module "eks" {
       max_size     = 3
       tags = {
         Name = "my-cluster-managed"
+        "k8s.io/cluster-autoscaler/my-cluster"  = "owned"
+        "k8s.io/cluster-autoscaler/enabled" = "TRUE"
       }
     }
   }
